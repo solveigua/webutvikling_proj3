@@ -1,22 +1,18 @@
-import React from "react";
+import React, { Fragment } from "react";
 import {BrowserRouter, NavLink, Route, Redirect} from "react-router-dom";
 import './App.css';
-import Main from "./pages/Main";
+import Header from './components/Layout/Header';
+import Movies from "./components/Movies/Movies";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="wrapper">
-        <ul className= "header"></ul>
-        <div className="app-container">
-          <div className="content">
-            <Route exact path = "/" component={Main}/>
-            <Redirect to = "/"/>
-          </div>
-        </div>
-      </div>
-    </BrowserRouter>
+    <Fragment>
+      <Header/>
+      <main>
+        <Movies/>
+      </main>
+    </Fragment>
   );
 }
-//mulig vi ikke trenger å ha med 
+
 export default App;
