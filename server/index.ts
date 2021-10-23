@@ -18,15 +18,7 @@ import Express from '../config/express';
   * @param uris
   * @param options
   */
- mongoose.connect(config.db, {
-    bufferMaxEntries: 0,
-    keepAlive: true,
-    reconnectInterval: 500,
-    reconnectTries: 30,
-    socketTimeoutMS: 0,
-    useNewUrlParser: true,
-    useUnifiedTopology: true
- });
+ mongoose.connect(config.db);
 
 /**
  * Error when unable to connect to db
@@ -50,7 +42,5 @@ ExpressServer.httpServer.listen(process.env.PORT || config.port, () => {
     console.log(
         `🚀 Server ready at http://localhost:${config.port}${ExpressServer.server.graphqlPath}`
       );
-      console.log(
-        `🚀 Subscriptions ready at ws://localhost:${config.port}${ExpressServer.server.subscriptionsPath}`
-      );
+
 });
