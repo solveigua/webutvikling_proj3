@@ -2,6 +2,8 @@ import classes from './Modal.module.css';
 import React, { Fragment } from 'react';
 import ReactDOM  from 'react-dom';
 
+//the search that is shown above the rest of the page
+
 const Backdrop:React.FC<{onClose: () => void}> = props => {
     return (
         <div className={classes.backdrop} onClick={props.onClose}/>

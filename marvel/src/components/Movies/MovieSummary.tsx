@@ -1,5 +1,7 @@
 import classes from './MovieSummary.module.css';
 
+//informaton only, can add more here
+
 const MovieSummary = () => {
     return (
     <section className={classes.summary}>

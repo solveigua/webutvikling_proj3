@@ -1,6 +1,8 @@
 import SearchContext from "./search-context";
 import React from "react";
 
+//TODO: Make storage using redux/mobux
+
 const SearchProvider:React.FC = props => {
 
 

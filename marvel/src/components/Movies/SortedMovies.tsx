@@ -13,6 +13,10 @@ const dummyData = [
     {_id: 7, title: "Iron Man 3", seqNr: 8, releaseYear: 2013},
 ];
 
+//burde ha kallt denne allmovies eller showmovies
+
+//TODO: This is which movies that are shown - should make it dependent on what we do in the search
+//Ex: if we click on "seq order" and/or "search for iron man" - then the list gets updated to be in 1. seq order and 2. only includes iron man
 const SortedMovies = () => {
 
     const movieList = dummyData.map((movie) => (
