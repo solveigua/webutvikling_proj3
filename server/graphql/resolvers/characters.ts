@@ -1,0 +1,3 @@
+/**
+ * Resolvers for characters
+ */
