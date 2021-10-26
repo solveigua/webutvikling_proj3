@@ -1,0 +1,17 @@
+import classes from './Search.module.css';
+import React from 'react';
+import Modal from '../UI/Modal';
+
+const Search:React.FC<{ onClose:() => void}>  = props => {
+
+    return (
+        <Modal onClose={props.onClose}>
+        <div className={classes.actions}>
+            <button className={classes['button--alt']} onClick={props.onClose}>Close</button>
+            <button className={classes.button}>Search</button>
+        </div>
+        </Modal>
+    );
+};
+
+export default Search;
