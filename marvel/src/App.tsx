@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Layout/Header';
 import Movies from "./components/Movies/Movies";
 import Search from "./components/Search/Search";
+import SearchProvider from "./store/SearchProvider";
 
 function App() {
   const [searchIsShown, setSearchIsShown] =useState<Boolean>(false);
@@ -18,13 +19,13 @@ function App() {
 
 
   return (
-    <Fragment>
+    <SearchProvider>
       {searchIsShown && <Search onClose={hideSearchHandler}/>}
       <Header onShowSearch={showSearchHandler}/>
       <main>
         <Movies/>
       </main>
-    </Fragment>
+    </SearchProvider>
   );
 }
 
