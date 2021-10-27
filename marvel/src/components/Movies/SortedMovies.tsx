@@ -19,7 +19,10 @@ const dummyData = [
 //Ex: if we click on "seq order" and/or "search for iron man" - then the list gets updated to be in 1. seq order and 2. only includes iron man
 const SortedMovies = () => {
 
-    const movieList = dummyData.map((movie) => (
+   const proto = dummyData.filter((movie) =>
+   movie.title === "hei");
+
+    const movieList = proto.map((movie) => (
         <MovieItem 
         key={movie._id} 
         title={movie.title}

@@ -11,4 +11,4 @@ const Movies = () => {
     </Fragment>
 };
 
-export default Movies;
+export default Movies
