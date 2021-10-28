@@ -23,6 +23,6 @@ export const fetchMovies = (text: string) => (dispatch: any) => {
         dispatch({
             type: FETCH_MOVIES,
             payload: dummyData.filter((movie) =>
-            movie.title.includes(text))
+            movie.title.toLowerCase().includes(text.toLowerCase()))
         })
 }

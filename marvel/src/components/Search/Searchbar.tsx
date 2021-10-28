@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { searchMovie, fetchMovies } from '../../actions/searchActions';
 import { connect } from 'react-redux';
+import classes from './Search.module.css';
 
 
 interface props {
@@ -29,25 +30,20 @@ export class Searchbar extends Component<props> {
     }
     render() {
         return (
-            <div className="jumbotron jumbotron-fluid mt-5 text-center">
-            <div className="container">
-              <h1 className="display-4 mb-3">
-                <i className="fa fa-search" /> Search for a movie ,TV series ..
-              </h1>
+            <div className={classes.actions}>
               <form id="searchForm" onSubmit={this.onSubmit}>
                 <input
                   type="text"
                   className="form-control"
                   name="searchText"
-                  placeholder="Search Movies, TV Series ..."
+                  placeholder="Search for a Marvel movie"
                   onChange={this.onChange}
                 />
-                <button type="submit" className="btn btn-primary btn-bg mt-3">
+                <button type="submit" className={classes.button}>
                   Search
                 </button>
               </form>
             </div>
-          </div>
         )
     }
 }

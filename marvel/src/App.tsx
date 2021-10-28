@@ -22,15 +22,12 @@ function App() {
 
   //FROM TUTORIAL: used searchprovider as wrapper as it affectrs everything - can use Fragments instead. Check how it works with redux/mobux
   return (
-  <Provider store={store}>
   <div className="container">
-    <Header onShowSearch={showSearchHandler}/>
-    <Searchbar/>
+    <Header/>
     <main>
       <Movies/>
       </main>
       </div>
-      </Provider>
   );
 }
 
