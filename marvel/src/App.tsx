@@ -5,6 +5,9 @@ import Header from './components/Layout/Header';
 import Movies from "./components/Movies/Movies";
 import Search from "./components/Search/Search";
 import SearchProvider from "./store/SearchProvider";
+import Searchbar from "./components/Search/Searchbar";
+import store from './store';
+import {Provider} from 'react-redux';
 
 function App() {
   const [searchIsShown, setSearchIsShown] =useState<Boolean>(false);
@@ -19,13 +22,12 @@ function App() {
 
   //FROM TUTORIAL: used searchprovider as wrapper as it affectrs everything - can use Fragments instead. Check how it works with redux/mobux
   return (
-    <SearchProvider>
-      {searchIsShown && <Search onClose={hideSearchHandler}/>}
-      <Header onShowSearch={showSearchHandler}/>
-      <main>
-        <Movies/>
+  <div className="container">
+    <Header/>
+    <main>
+      <Movies/>
       </main>
-    </SearchProvider>
+      </div>
   );
 }
 

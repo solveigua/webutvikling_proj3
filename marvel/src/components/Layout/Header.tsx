@@ -2,19 +2,24 @@ import React from "react";
 import marvelLogo from '../../assets/marvel.png';
 import SearchButton from './SearchButton';
 import classes from './Header.module.css';
+import Searchbar from "../Search/Searchbar";
+import {Provider} from 'react-redux';
+import store from "../../store"
 
-const Header:React.FC<{onShowSearch: (event: React.MouseEvent) => void}> = (props) => {
-
-    return <React.Fragment>
+const Header = () => {
+    return (
+        <Provider store={store}>
+        <div>
         <header className={classes.header}>
             <h1>Marvel Movies</h1>
-            <SearchButton onClick={props.onShowSearch}/>
+        <Searchbar/>
         </header>
         <div className={classes['main-image']}>
             <img src={marvelLogo} alt="Marvel logo" />
         </div>
-    </React.Fragment>
-
+        </div>
+        </Provider>
+    )
 };
 
 export default Header;

@@ -2,11 +2,11 @@
  * Express configuration
  */
 import { ApolloServer } from 'apollo-server-express';
-import cors from 'cors';
 import express from 'express';
 import * as http from 'http';
 import schema from '../server/graphql/schema/index';
-import config from './index';
+import auth from '../server/middleware/auth';
+
 
 
 class Express {
