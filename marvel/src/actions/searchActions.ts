@@ -11,6 +11,7 @@ const dummyData = [
     {_id: 7, title: "Iron Man 3", seqNr: 8, releaseYear: 2013},
 ];
 
+
 export const searchMovie = (text: string) => (dispatch: any) => {
     dispatch({
         type: SEARCH_MOVIE,

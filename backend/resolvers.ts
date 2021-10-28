@@ -16,22 +16,9 @@ export const resolvers = {
         },
         getAllMovies: async () => {
             const movies = await Movie.find();
+            console.log(movies);
             return movies;
         },
-        /*getMovie:(_: Object,  args: { input: movieId }) => {
-            console.log(args.input.id);
-            return new Promise((resolve, reject) => {
-                const movie = Movie.findOne({_id: args.input.id}, function(err: Error, result: typeof Movie | undefined){
-                    if(err || !result){
-                        reject("Something went wrong");
-                    }
-                    else {
-                        resolve(movie);
-                    }
-                })
-            });
-        },*/
-
 
         getAllCharacters: async () => {
             const characters = await Character.find();
@@ -48,6 +35,7 @@ export const resolvers = {
              }
         },
 
+        //TODO: implement
         getMoviesFromCharacter: async (_:Object, args: {input: characterId}) => {
             try {
                 const character = await Character.findById(args.input.id);
@@ -59,7 +47,6 @@ export const resolvers = {
 
         },
 
-    
         getCharacter: async (_:Object, args: {input: characterId}) => {
             console.log(args.input.id);
             try {

@@ -6,6 +6,7 @@ type Movie {
     title: String
     seqNr: Int
     releaseYear: Int
+    rating: Int
 }
 
 type Character {
