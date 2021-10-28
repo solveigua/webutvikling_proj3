@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { MoviesContainer } from "./MoviesContainer";
 import MovieSummary from "./MovieSummary";
 import SortedMovies from "./SortedMovies";
 
@@ -7,7 +8,6 @@ import SortedMovies from "./SortedMovies";
 const Movies = () => {
     return <Fragment>
         <MovieSummary/>
-        <SortedMovies/>
     </Fragment>
 };
 

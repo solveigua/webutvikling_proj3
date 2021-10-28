@@ -1,11 +1,14 @@
+import { PayloadAction, AnyAction } from "@reduxjs/toolkit";
 import { SEARCH_MOVIE, FETCH_MOVIES } from "../actions/types";
 
-const initialState: {
+interface movieState {
     text: string,
-    movies: [],
+    movies: any
     loading: boolean,
-    movie: []
-} = {
+    movie: any
+}
+
+const initialState: movieState = {
     text: ' ',
     movies: [],
     loading: false,
@@ -13,7 +16,7 @@ const initialState: {
 }
 
 
-export default function(state = initialState, action: any) {
+export default function(state = initialState, action: AnyAction) {
     switch (action.type) {
         case SEARCH_MOVIE:
             return {

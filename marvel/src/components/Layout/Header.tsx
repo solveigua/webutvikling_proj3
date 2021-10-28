@@ -5,6 +5,7 @@ import classes from './Header.module.css';
 import Searchbar from "../Search/Searchbar";
 import {Provider} from 'react-redux';
 import store from "../../store"
+import { MoviesContainer } from "../Movies/MoviesContainer";
 
 const Header = () => {
     return (
