@@ -2,10 +2,16 @@
  * Export for all resolvers.
  */
 import { moviesResolver } from './movies';
+import { charactersResolver } from './characters';
 
 const rootResolver = {
   Query: {
-    ...moviesResolver
+    //test:
+    hello: () => {
+      return "helloWorld";
+    },
+    ...moviesResolver,
+    ...charactersResolver
     // Add other queries here
   },
   Mutation: {
