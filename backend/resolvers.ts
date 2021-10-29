@@ -8,6 +8,10 @@ type movieId ={
 type characterId = {
     id: ObjectId
 }
+type ratingInput = {
+    movieId: ObjectId
+    rating: Number
+}
 
 export const resolvers = {
     Query: {
@@ -59,5 +63,24 @@ export const resolvers = {
         }
 
     },
+    Mutation: {
+        setRating: async (_:Object, args: {input: ratingInput}) => {
+            console.log(args.input);
+            try {
+                const movie = await Movie.findById(args.input.movieId);
+                console.log(movie);
+                if (movie) {
+                    await Movie.updateOne( movie ,{ $set: { rating: args.input.rating }});
+                    return movie;
+                }
+                else{
+                    throw new Error('Movie does not exist in database. ');
+                }
+            }
+            catch (err) {
+                throw err;
+            }
+        }
+    }
 };
 

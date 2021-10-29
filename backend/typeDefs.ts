@@ -26,11 +26,20 @@ type Query {
     getCharacter(input: characterId): Character
     getMoviesFromCharacter: [String]
 }
+
+type Mutation {
+    setRating(input: ratingInput): Movie
+}
+
 input movieId{
     id: ID
 }
 input characterId{
     id: ID
+}
+input ratingInput {
+    movieId: ID
+    rating: Int
 }
 `;
 
