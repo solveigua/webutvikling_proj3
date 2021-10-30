@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import { searchMovie, fetchMovies } from '../../actions/searchActions';
 import { connect } from 'react-redux';
 import classes from './Search.module.css';
+import { Action, ActionSearch, movieState } from '../../reducers/searchReducer'
+import {Movie} from '../Types';
 
 
 interface ISearchbarProps {
-  searchMovie: any;
-  fetchMovies: any;
+  searchMovie: any; /*TYPE? searchMovie ligger i searchActions*/
+  fetchMovies: any; /*TYPE? fetchMovies ligger i searchActions*/
   text: string;
   }
   
@@ -18,7 +20,7 @@ export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
 
   state: ISearchbarState = {
     moviesList: []
-  }
+  };
 
     onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.props.searchMovie(e.currentTarget.value);
@@ -49,7 +51,7 @@ export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
     }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: any) /*TYPE?*/ => ({
     text: state.movies.text
 })
 
