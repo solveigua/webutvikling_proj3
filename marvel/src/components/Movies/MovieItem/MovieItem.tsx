@@ -1,6 +1,5 @@
 import classes from './MovieItem.module.css';
 import React from 'react';
-import { Movie } from '../../Types';
 
 //What is included in one movie item - we can change this if we want to expand ect. Remember to change the css file as well.
 

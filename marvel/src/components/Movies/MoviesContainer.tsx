@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 import classes from './SortedMovies.module.css';
 import MovieItem from './MovieItem/MovieItem';
 import Card from '../UI/Card';
-import { stateType } from '../../actions/types';
 import { Movie } from '../Types';
-import { movieState } from '../../reducers/searchReducer';
 
 interface IMoviesContainerProps {
     movies: Movie[];

@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import { searchMovie, fetchMovies } from '../../actions/searchActions';
 import { connect } from 'react-redux';
 import classes from './Search.module.css';
-import { Action, ActionSearch, movieState } from '../../reducers/searchReducer'
-import {Movie} from '../Types';
 
 
 interface ISearchbarProps {
@@ -29,7 +27,10 @@ export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
     onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         this.props.fetchMovies(this.props.text)
-        this.state.moviesList = this.props.fetchMovies(this.props.text)
+        //this.state.moviesList = this.props.fetchMovies(this.props.text)
+        this.setState({
+          moviesList: this.props.fetchMovies(this.props.text)
+        });
     }
     render() {
         return (
