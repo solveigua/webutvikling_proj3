@@ -4,21 +4,21 @@ import { connect } from 'react-redux';
 import classes from './Search.module.css';
 
 
-interface props {
-    searchMovie: any;
-    fetchMovies: any;
-    text: string;
-}
-
-
 interface ISearchbarProps {
-
+  searchMovie: any; /*TYPE? searchMovie ligger i searchActions*/
+  fetchMovies: any; /*TYPE? fetchMovies ligger i searchActions*/
+  text: string;
   }
   
-  interface ISearchbarState {
+interface ISearchbarState {
+  moviesList: { _id: number, title: string, seqNr: number, releaseYear: number }[];
   }
 
-export class Searchbar extends Component<props> {
+export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
+
+  state: ISearchbarState = {
+    moviesList: []
+  };
 
     onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.props.searchMovie(e.currentTarget.value);
@@ -27,6 +27,10 @@ export class Searchbar extends Component<props> {
     onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         this.props.fetchMovies(this.props.text)
+        //this.state.moviesList = this.props.fetchMovies(this.props.text)
+        this.setState({
+          moviesList: this.props.fetchMovies(this.props.text)
+        });
     }
     render() {
         return (
@@ -48,7 +52,7 @@ export class Searchbar extends Component<props> {
     }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: any) /*TYPE?*/ => ({
     text: state.movies.text
 })
 

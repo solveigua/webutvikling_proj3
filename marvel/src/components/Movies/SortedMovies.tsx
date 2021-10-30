@@ -22,7 +22,7 @@ const SortedMovies = () => {
    const proto = dummyData.filter((movie) =>
    movie.title === "hei");
 
-    const movieList = proto.map((movie) => (
+    const movieList = dummyData.map((movie) => (
         <MovieItem 
         key={movie._id} 
         title={movie.title}
