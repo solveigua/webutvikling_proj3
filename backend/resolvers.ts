@@ -1,3 +1,6 @@
+/**
+ * Exports all resolvers
+ */
 import {Movie} from "./models/movie";
 import {Character} from "./models/character";
 import { ObjectId } from "mongoose";
@@ -83,4 +86,3 @@ export const resolvers = {
         }
     }
 };
-

@@ -1,5 +1,17 @@
 import {gql} from 'apollo-server-express';
 
+export interface movie {
+    _id: string;
+    title: string;
+    seqNr: number;
+    releaseYear: number;
+    rating: number;
+}
+
+export interface movieList {
+    movies: movie[]
+}
+
 export const typeDefs = gql`
 type Movie {
     _id: ID!
