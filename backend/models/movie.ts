@@ -9,6 +9,9 @@ export const MovieSchema = new mongoose.Schema({
     },
     releaseYear: {
         type: Number
+    },
+    rating: {
+        type: Number
     }
 }, {collection: 'Movie'});
 

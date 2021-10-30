@@ -1,11 +1,24 @@
 import {gql} from 'apollo-server-express';
 
+export interface movie {
+    _id: string;
+    title: string;
+    seqNr: number;
+    releaseYear: number;
+    rating: number;
+}
+
+export interface movieList {
+    movies: movie[]
+}
+
 export const typeDefs = gql`
 type Movie {
     _id: ID!
     title: String
     seqNr: Int
     releaseYear: Int
+    rating: Int
 }
 
 type Character {
@@ -25,11 +38,20 @@ type Query {
     getCharacter(input: characterId): Character
     getMoviesFromCharacter: [String]
 }
+
+type Mutation {
+    setRating(input: ratingInput): Movie
+}
+
 input movieId{
     id: ID
 }
 input characterId{
     id: ID
+}
+input ratingInput {
+    movieId: ID
+    rating: Int
 }
 `;
 
