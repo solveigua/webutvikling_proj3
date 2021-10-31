@@ -3,4 +3,5 @@ export type Movie = {
     title: string;
     seqNr: number;
     releaseYear: number;
+    rating: number;
 }

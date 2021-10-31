@@ -55,4 +55,4 @@ const SET_RATING = gql`
           }
     }
 `
-
+export {GET_ALL_MOVIES, GET_MOVIE, GET_ALL_CHARACTERS, GET_CHARACTER, SET_RATING }
