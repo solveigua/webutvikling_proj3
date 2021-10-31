@@ -34,6 +34,7 @@ export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
     }
     render() {
         return (
+          <ul className={classes.container}>
             <div className={classes.actions}>
               <form id="searchForm" onSubmit={this.onSubmit}>
                 <input
@@ -48,6 +49,7 @@ export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
                 </button>
               </form>
             </div>
+            </ul>
         )
     }
 }

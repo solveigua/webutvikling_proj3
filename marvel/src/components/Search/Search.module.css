@@ -17,6 +17,7 @@
   
   .actions {
     text-align: right;
+    float: left;
   }
   
   .actions button {
@@ -44,3 +45,31 @@
     background-color: #ac0404e5;
     color: white;
   }
+
+  input:focus{
+    border: 3px solid #555;
+  }
+
+  input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  .container{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 1px solid silver;
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+ 
