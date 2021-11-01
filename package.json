@@ -6,16 +6,22 @@
   "scripts": {
     "dev": "nodemon index.ts",
     "start": "node index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:run": "cypress run --headless --browser chrome",
+    "cypress:open": "cypress open"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@cypress/webpack-preprocessor": "^5.9.1",
     "@types/react": "^17.0.31",
     "@types/react-dom": "^17.0.10",
     "@types/react-router-dom": "^5.3.1",
-    "typescript": "^4.4.4"
+    "cypress": "^8.7.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
+    "webpack": "^5.61.0"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",

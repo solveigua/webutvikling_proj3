@@ -23,7 +23,7 @@ export const resolvers = {
         },
         getAllMovies: async () => {
             const movies = await Movie.find();
-            console.log(movies);
+            //console.log(movies);
             return movies;
         },
 
@@ -42,7 +42,7 @@ export const resolvers = {
              }
         },
 
-        //TODO: implement
+        //Brukes ikke: kan slettes
         getMoviesFromCharacter: async (_:Object, args: {input: characterId}) => {
             try {
                 const character = await Character.findById(args.input.id);
