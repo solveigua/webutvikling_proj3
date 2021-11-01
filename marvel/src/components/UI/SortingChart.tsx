@@ -4,11 +4,10 @@ import SortingSurvey from './SortingSurvey';
 const SortingChart = () => {
 
     let store: string | null = "";
-    localStorage.length == 1 ? store = JSON.parse(localStorage.getItem('type') || '{}')
+    localStorage.getItem("type") != null ? store = JSON.parse(localStorage.getItem('type') || '{}')
     : store = "year";
     const [type, setType] = useState(store);
     localStorage.setItem("type", JSON.stringify(type));
-    console.log(localStorage.length)
 
     if (type === "year") {
         return (

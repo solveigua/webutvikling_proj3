@@ -3,10 +3,38 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  gql,
+  HttpLink,
+  from,
+  ApolloLink,
+  UriFunction
+} from "@apollo/client";
+import { onError } from "@apollo/client/link/error"
+
+/*const errorLink = onError(({ graphqlErrors, networkError }) => {
+  if (graphqlErrors) {
+    graphqlErrors.map(({message, location, path}) =>  {
+      alert(`Graphql error ${message}`)
+    })
+  }
+})
+*/
+
+const client = new ApolloClient({
+  uri: "http://it2810-19.idi.ntnu.no:4000/graphql",
+  cache: new InMemoryCache()
+});
 
 ReactDOM.render(
   <React.StrictMode>
+    <ApolloProvider client={client}>
     <App />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

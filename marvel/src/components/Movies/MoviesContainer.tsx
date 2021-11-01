@@ -4,7 +4,9 @@ import classes from './SortedMovies.module.css';
 import MovieItem from './MovieItem/MovieItem';
 import Card from '../UI/Card';
 import { Movie } from '../Types';
-import { useState } from "react";
+import { GET_ALL_MOVIES } from "../../util/queries";
+import { useQuery } from "@apollo/client";
+import fetching from "../../util/fetching"
 
 interface IMoviesContainerProps {
     movies: Movie[];
@@ -20,12 +22,12 @@ export class MoviesContainer extends Component<IMoviesContainerProps, IMoviesCon
     constructor(props: any) {
         super(props);
         this.state = {
-            type: localStorage.length == 1 ? JSON.parse(localStorage.getItem('type') || '{}')
+            type: localStorage.getItem("type") != null ? JSON.parse(localStorage.getItem('type') || '{}')
             : "year",
             sortedMovies: []
         };
     }
-   
+
 
     render() {
         const { movies } = this.props;  
@@ -38,7 +40,7 @@ export class MoviesContainer extends Component<IMoviesContainerProps, IMoviesCon
         });
 
         // this.setState({sortedMovies: movies})
-        
+
         content = movies.length > 0 ? movies.map((movie: any) =>
             <MovieItem
                 key={movie._id}

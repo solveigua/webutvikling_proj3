@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
 //Queries:
-const GET_ALL_MOVIES = gql`
+export const GET_ALL_MOVIES = gql`
     query{
         getAllMovies {
             _id
@@ -13,7 +13,7 @@ const GET_ALL_MOVIES = gql`
     }
 `
 
-const GET_MOVIE = gql`
+export const GET_MOVIE = gql`
     query($id: String!){
         getMovie(input: {id: $id}) {
             title
@@ -24,7 +24,7 @@ const GET_MOVIE = gql`
     }
 `
 
-const GET_ALL_CHARACTERS = gql`
+export const GET_ALL_CHARACTERS = gql`
     query{
         getAllCharacters {
             _id
@@ -36,7 +36,7 @@ const GET_ALL_CHARACTERS = gql`
     }
 `
 
-const GET_CHARACTER = gql`
+export const GET_CHARACTER = gql`
     query($id: String!){
         getCharacter (input: {id: $id}){
             name
@@ -47,7 +47,7 @@ const GET_CHARACTER = gql`
 `
 
 //Mutation:
-const SET_RATING = gql`
+export const SET_RATING = gql`
     mutation ($id: String!, $rating: Int!){
         setRating(input: {movieId: $id, rating: $rating}){
             title

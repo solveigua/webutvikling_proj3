@@ -4,6 +4,7 @@ import Header from './components/Layout/Header';
 import Movies from "./components/Movies/Movies";
 import store from './store';
 import { Provider } from 'react-redux';
+import Fetching from "./util/fetching";
 
 function App() {
   const [searchIsShown, setSearchIsShown] = useState<Boolean>(false);
@@ -22,7 +23,7 @@ function App() {
       <div className="container">
         <Header />
         <main>
-          <Movies />
+          <Fetching/>
         </main>
       </div>
     </Provider>
