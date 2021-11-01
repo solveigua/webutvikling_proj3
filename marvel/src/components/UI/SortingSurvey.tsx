@@ -7,21 +7,27 @@ interface ISortingSurveyProps {
 }
 
 const SortingSurvey = ({ setType } : ISortingSurveyProps) => {
-    //For showing Label chart:
-    const [isCheckedLabel, setIsCheckedLabel] = useState(false);
+    //For showing sequence number:
+    const boolYear = JSON.parse(localStorage.getItem('type') || '{}') === "year" ? true : false;
+    const boolSeq = JSON.parse(localStorage.getItem('type') || '{}') === "sequence" ? true : false;
+    const [isCheckedSeq, setIsCheckedSeq] = useState(boolSeq);
 
-    //For showing Closed vs open chart:
-    const [isCheckedClosed, setIsCheckedClosed] = useState(true);
+    //For showing release year:
+    const [isCheckedYear, setIsCheckedYear] = useState(boolYear);
 
-    const handleChangeClosed = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setIsCheckedClosed(e.target.checked);
-        setIsCheckedLabel(false);
+    const handleChangeYear = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setIsCheckedYear(e.target.checked);
+        setIsCheckedSeq(false);
         setType("year");
+        // Hurtigløsning, får ikke til å oppdatere sorteringen
+        window.location.reload();
     };
-    const handleChangeLabel = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setIsCheckedLabel(e.target.checked);
-        setIsCheckedClosed(false);
+    const handleChangeSeq = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setIsCheckedSeq(e.target.checked);
+        setIsCheckedYear(false);
         setType("sequence");
+        // Hurtigløsning, får ikke til å oppdatere sorteringen
+        window.location.reload();
     };
 
 
@@ -30,16 +36,16 @@ const SortingSurvey = ({ setType } : ISortingSurveyProps) => {
             <p> Sort movies based on: </p>
             <div>
                 <Checkbox 
-                    handleChange={handleChangeClosed} 
-                    isChecked={isCheckedClosed} 
+                    handleChange={handleChangeYear} 
+                    isChecked={isCheckedYear} 
                     label="Year" 
                     name="chart"
                 />
             </div>
             <div>
                 <Checkbox 
-                    handleChange={handleChangeLabel} 
-                    isChecked={isCheckedLabel} 
+                    handleChange={handleChangeSeq} 
+                    isChecked={isCheckedSeq} 
                     label="Sequence number"
                     name="chart"
                 />

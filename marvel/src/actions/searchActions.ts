@@ -26,5 +26,7 @@ export const fetchMovies = (text: string) => (dispatch: Dispatch<dispatchType>) 
             type: FETCH_MOVIES,
             payload: dummyData.filter((movie) =>
             movie.title.toLowerCase().includes(text.toLowerCase()))
-        })
+        });
+
+        
 }
