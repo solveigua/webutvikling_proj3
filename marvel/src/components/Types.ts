@@ -1,7 +1,9 @@
 export type Movie = {
-    _id: string;
-    title: string;
-    seqNr: number;
-    releaseYear: number;
     rating: number;
+    releaseYear: number;
+    seqNr: number;
+    title: string;
+    _id: string;
+    __typename: string
+   
 }

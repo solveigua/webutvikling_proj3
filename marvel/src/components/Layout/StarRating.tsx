@@ -11,7 +11,7 @@ const StarRating = (props: Props) => {
 
     const [rating, setRating] = useState<Number | null | undefined>(null);
     const [hover, setHover] = useState<Number | null | undefined>(null);
-    const [rateMovie, {data:rateData, error: rateError, loading:rateLoading}] = useMutation(SET_RATING)
+    //const [rateMovie, {data:rateData, error: rateError, loading:rateLoading}] = useMutation(SET_RATING)
 
     return <div>
         {[...Array(5)].map((star, i) => {
@@ -22,7 +22,7 @@ const StarRating = (props: Props) => {
                 type='radio' 
                 name='rating' 
                 value ={ratingValue}
-                onClick= {() => {setRating(ratingValue); rateMovie({variables:{id:props.movieId, rating:ratingValue}})}}
+                //onClick= {() => {setRating(ratingValue); rateMovie({variables:{id:props.movieId, rating:ratingValue}})}}
                 />
                  <FaStar 
                  className="star" 

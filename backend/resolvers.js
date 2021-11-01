@@ -1,20 +1,31 @@
 /**
  * Exports all resolvers
  */
-import {Movie} from "./models/movie";
-import {Character} from "./models/character";
-import { ObjectId } from "mongoose";
 
-type movieId ={
-    id: ObjectId
+const models = require("./models/movie")
+const ObjectId = require("mongoose")
+
+/*interface IMovie {
+    id: String;
+    title: String;
+    seqNr: number;
+    releaseYear: number;
+    rating: number;
+
 }
-type characterId = {
-    id: ObjectId
+
+interface Character {
+    id: String
+    name: String
+    actor: String
+    appearencesInMovies: number
+    movies: [String]
 }
-type ratingInput = {
-    movieId: ObjectId
-    rating: Number
-}
+
+interface ratingInput {
+    id: String,
+    rating: number
+}*/
 
 export const resolvers = {
     Query: {
@@ -22,19 +33,19 @@ export const resolvers = {
             return "hello world";
         },
         getAllMovies: async () => {
-            const movies = await Movie.find();
+            const movies = await models.Movie.find();
             console.log(movies);
             return movies;
         },
 
         getAllCharacters: async () => {
-            const characters = await Character.find();
+            const characters = await models.Character.find();
             return characters;
         },
-        getMovie: async (_:Object, args: {input: movieId}) => {
+        getMovie: async (_, args) => {
             console.log(args.input.id);
             try {
-                const movie = await Movie.findById(args.input.id);
+                const movie = await models.Movie.findById(args.input.id);
                 return movie;
              }
              catch (err) {
@@ -43,9 +54,9 @@ export const resolvers = {
         },
 
         //TODO: implement
-        getMoviesFromCharacter: async (_:Object, args: {input: characterId}) => {
+        getMoviesFromCharacter: async (_, args) => {
             try {
-                const character = await Character.findById(args.input.id);
+                const character = await models.Character.findById(args.input.id);
                 //return character.();
              }
              catch (err) {
@@ -54,10 +65,10 @@ export const resolvers = {
 
         },
 
-        getCharacter: async (_:Object, args: {input: characterId}) => {
+        getCharacter: async (_, args) => {
             console.log(args.input.id);
             try {
-                const character = await Character.findById(args.input.id);
+                const character = await models.Character.findById(args.input.id);
                 return character;
              }
              catch (err) {
@@ -67,13 +78,13 @@ export const resolvers = {
 
     },
     Mutation: {
-        setRating: async (_:Object, args: {input: ratingInput}) => {
+        setRating: async (_, args) => {
             console.log(args.input);
             try {
-                const movie = await Movie.findById(args.input.movieId);
+                const movie = await models.Movie.findById(args.input.id);
                 console.log(movie);
                 if (movie) {
-                    await Movie.updateOne( movie ,{ $set: { rating: args.input.rating }});
+                    await models.Movie.updateOne( movie ,{ $set: { rating: args.input.rating }});
                     return movie;
                 }
                 else{

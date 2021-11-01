@@ -1,6 +1,10 @@
+import { ApolloClient, useQuery } from "@apollo/client";
 import { Dispatch } from "react";
+import { GET_ALL_MOVIES } from "../util/queries";
 import { SEARCH_MOVIE, FETCH_MOVIES } from "./types";
 import { dispatchType } from "./types";
+import { Movie } from "../components/Types";
+import { InMemoryCache } from "@apollo/client";
 
 const dummyData = [
     {_id: 1, title: "Captain America 1", seqNr: 1, releaseYear: 2011},
@@ -20,11 +24,26 @@ export const searchMovie = (text: string) => (dispatch: Dispatch<dispatchType>) 
     });
 };
 
-export const fetchMovies = (text: string) => (dispatch: Dispatch<dispatchType>) => {
-    //hente filmene fra databasen, foreløpig bare dummy data
+export const fetchMovies = (text: string) => async (dispatch: Dispatch<dispatchType>) => {
+
+    console.log(text)
+
+    const client = new ApolloClient({
+        uri: 'http://it2810-19.idi.ntnu.no:4001/graphql',
+        cache: new InMemoryCache()
+      })
+    
+
+    const res = await client.query({
+        query: GET_ALL_MOVIES,
+        variables: {},
+      })
+
+      const arr = res?.data.getAllMovies
+      console.log(text)
+      console.log(arr)   //hente filmene fra databasen, foreløpig bare dummy data
         dispatch({
             type: FETCH_MOVIES,
-            payload: dummyData.filter((movie) =>
-            movie.title.toLowerCase().includes(text.toLowerCase()))
+            payload: arr
         })
 }
