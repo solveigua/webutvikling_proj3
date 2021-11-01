@@ -14,6 +14,7 @@ export interface movieState {
         seqNr: number,
         releaseYear: number
     } | null
+    sorting: string | null
 }
 
 export interface ActionSearch {
@@ -24,6 +25,7 @@ export interface ActionFetch {
     type: 'FETCH_MOVIES';
     payload: string
 }
+
 
 export type Action = ActionSearch | ActionFetch;
 
@@ -39,7 +41,8 @@ const initialState: movieState = {
         {_id: 7, title: "The Avengers", seqNr: 7, releaseYear: 2012},
         {_id: 8, title: "Iron Man 3", seqNr: 8, releaseYear: 2013},
     ],
-    movie: null
+    movie: null,
+    sorting: JSON.parse(localStorage.getItem('type') || '{}')
 }
 
 
