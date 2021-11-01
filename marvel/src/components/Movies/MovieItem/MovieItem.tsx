@@ -6,7 +6,7 @@ import StarRating from '../../Layout/StarRating';
 
 //What is included in one movie item - we can change this if we want to expand ect. Remember to change the css file as well.
 
-const MovieItem: React.FC<{key:number, title:String, seqNr:number, releaseYear:number}> = (props) => {
+const MovieItem: React.FC<{key:string, title:String, seqNr:number, releaseYear:number, rating: number}> = (props) => {
 
     return (
         <li className = {classes.movie}>

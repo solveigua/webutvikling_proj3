@@ -4,7 +4,7 @@ import {FaStar} from 'react-icons/fa';
 import { SET_RATING } from "../../util/queries";
 
 interface Props {
-    movieId : number
+    movieId : string
 }
 
 const StarRating = (props: Props) => {

@@ -24,6 +24,7 @@ export class MoviesContainer extends Component<IMoviesContainerProps, IMoviesCon
                 title={movie.title}
                 seqNr={movie.seqNr}
                 releaseYear={movie.releaseYear}
+                rating={movie.rating}
             />) : null as any
 
         return (
