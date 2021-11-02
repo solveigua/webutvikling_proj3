@@ -8,22 +8,21 @@
         cy.visit(baseUrl);
       });
     
-    it("should have a title and summary", () => {
+    it("should have a title", () => {
         cy.get('.MovieSummary_summary__1B7F2').find('h2')
         .should(e => {
           const [h2] = e.get();
           console.log('h2!', h2, h2.textContent);
-          expect(h2.textContent).to.contains('All Marvel movies');
-        });
-        cy.get('.MovieSummary_summary__1B7F2').find('p')
-        .should(e => {
-          const [h2] = e.get();
-          console.log('h2!', h2, h2.textContent);
-          expect(h2.textContent).to.contains('Search for you favourite Marvel movie');
+          expect(h2.textContent).to.contains('Marvel Cinematic Universe');
         });
     })
 
-    it("should have a Movie object that contains 'captain america' ", () => {
-        cy.get('.Card_card__1m44e li').should('contain.text', 'Captain America 1');
+    it("should have summary", () => {
+      cy.get('.MovieSummary_summary__1B7F2').find('p')
+        .should(e => {
+          const [h2] = e.get();
+          console.log('h2!', h2, h2.textContent);
+          expect(h2.textContent).to.contains('Search for your favourite Marvel Cinematic Universe movies and give them a rating!');
+        });
     })
  } )
