@@ -48,12 +48,13 @@ const initialState: movieState = {
 }
 
 
-export default function foo(state = initialState, action: Action) {
+export default function(state = initialState, action: Action) {
     switch (action.type) {
         case SEARCH_MOVIE:
             return {
                 ...state,
                 text: action.payload,
+                loading: false
             };
         case FETCH_MOVIES:
             return {

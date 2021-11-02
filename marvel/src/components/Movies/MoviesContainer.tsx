@@ -1,7 +1,8 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import classes from './MovieContainer.module.css';
+import classes from './SortedMovies.module.css';
 import MovieItem from './MovieItem/MovieItem';
+import Card from '../UI/Card';
 import { Movie } from '../Types';
 
 interface IMoviesContainerProps {

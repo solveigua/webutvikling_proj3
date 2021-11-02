@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Dispatch} from 'react';
 import { searchMovie, fetchMovies } from '../../actions/searchActions';
 import { connect } from 'react-redux';
 import classes from './Search.module.css';
