@@ -43,11 +43,7 @@ export class MoviesContainer extends Component<IMoviesContainerProps, IMoviesCon
         return (
             <div>
                 <section className={classes.movies}>
-                    <Card>
-                        <ul>
-                            {content}
-                        </ul>
-                    </Card>
+                <div className="movie-deck">{content}</div>
                 </section>
             </div>
         )

@@ -31,18 +31,15 @@ export class MovieSummary extends Component<IAllMoviesProps, IAllMoviesState> {
     render() {
         return (
             <Provider store={store}>
-            <section className={classes.summary}>
-                <h2>Marvel movies</h2>
-                <p>
-                    Search for your favourite Marvel movie!
-            <br />
-            Give the movies a rating of your choice.
-        </p>
-                <SortingChart />
-                <div className={classes.buttoncontainer}>
-                    <button className={classes.button} onClick={this.showAllMovies}> Show All Movies</button>
-                </div>
-            </section>
+                <section className={classes.summary}>
+                    <h2>Marvel movies</h2>
+                    <p className={classes.info}> Search for your favourite Marvel movie and give them a rating</p>
+                    <p className={classes.heading}> Sort movies based on: </p>
+                    <SortingChart />
+                    <div className={classes.buttoncontainer}>
+                        <button className={classes.button} onClick={this.showAllMovies}> Show All Movies</button>
+                    </div>
+                </section>
             </Provider>
         );
     }

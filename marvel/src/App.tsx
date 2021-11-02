@@ -23,9 +23,7 @@ function App() {
     <Provider store={store}>
       <div className="container">
         <Header />
-        <main>
           <Movies />
-        </main>
       </div>
     </Provider>
   );

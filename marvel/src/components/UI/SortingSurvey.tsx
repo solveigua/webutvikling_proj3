@@ -2,6 +2,7 @@ import * as React from 'react'
 import Checkbox from "./Checkbox"
 import{ useState }from "react"
 
+
 interface ISortingSurveyProps {
     setType: (type: string) => void;
 }
@@ -33,7 +34,6 @@ const SortingSurvey = ({ setType } : ISortingSurveyProps) => {
 
     return (
         <div className="survey">
-            <p> Sort movies based on: </p>
             <div>
                 <Checkbox 
                     handleChange={handleChangeYear} 
