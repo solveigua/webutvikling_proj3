@@ -4,32 +4,27 @@ import classes from './SortedMovies.module.css';
 import MovieItem from './MovieItem/MovieItem';
 import Card from '../UI/Card';
 import { Movie } from '../Types';
-import { useState } from "react";
 
 interface IMoviesContainerProps {
     movies: Movie[];
+    sorting: string
 }
 
-interface IMoviesContainerState {
-    //Hva gjør jeg her?
-    type: string | null;
-    sortedMovies: any;
-}
-
-export class MoviesContainer extends Component<IMoviesContainerProps, IMoviesContainerState> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            type: localStorage.length == 1 ? JSON.parse(localStorage.getItem('type') || '{}')
-            : "year",
-            sortedMovies: []
-        };
-    }
+export class MoviesContainer extends Component<IMoviesContainerProps> {
    
 
     render() {
-        const { movies } = this.props;  
+        const { movies } = this.props;
+        const { sorting } = this.props; 
         let content: Movie[] = [];
+
+        sorting === 'year' ? movies.sort(function(a, b) {
+            return a.releaseYear - b.releaseYear;
+        }) : movies.sort(function(a, b) {
+            return a.seqNr - b.seqNr;
+        });
+
+
         content = movies?.length >-1 ? movies.map((movie: Movie) =>
             <MovieItem
                 key={movie._id}
@@ -39,6 +34,7 @@ export class MoviesContainer extends Component<IMoviesContainerProps, IMoviesCon
                 releaseYear={movie.releaseYear}
                 rating={movie.rating}
             />) : null as any
+    
 
         return (
             <div>
@@ -50,8 +46,9 @@ export class MoviesContainer extends Component<IMoviesContainerProps, IMoviesCon
     }
 }
 
-const mapStateToProps = (state: any /*movieState gir feil:( */) => ({
-    movies: state.movies.movies
+const mapStateToProps = (state: any /* typeof searchReducer gir feil:( */) => ({
+    movies: state.movies.movies,
+    sorting: state.movies.sort
 })
 
 export default connect(mapStateToProps)(MoviesContainer)

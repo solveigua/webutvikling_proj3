@@ -1,8 +1,6 @@
-import { SEARCH_MOVIE, FETCH_MOVIES } from "../actions/types";
-import { useQuery, ApolloClient, InMemoryCache } from "@apollo/client";
-import { GET_ALL_MOVIES } from "../util/queries";
-import { Movie } from "../components/Types";
-//import { getAllMovies } from "../util/getData";
+import { SEARCH_MOVIE, FETCH_MOVIES, SORT_MOVIES } from "../actions/types";
+
+// searchReducer er litt misvisende navn siden den inneholder alle reducers
 
 export interface movieState {
     text: string,
@@ -20,7 +18,7 @@ export interface movieState {
         releaseYear: number,
         rating: number,
     } | null
-    sorting: string | null
+    sort: string | null
 }
 
 export interface ActionSearch {
@@ -32,30 +30,13 @@ export interface ActionFetch {
     payload: string
 }
 
-
-export type Action = ActionSearch | ActionFetch;
-
-/*const client = new ApolloClient({
-    uri: 'http://it2810-19.idi.ntnu.no:4000/graphql',
-    cache: new InMemoryCache()
-  })
-
-//const getMovies = getAllMovies();
-
-//const movieList = getMovies ? getMovies.data as Movie[] : null;
-
-/*onst MovieArray = movieList ? movieList.map((movie:Movie) => {
-    return {
-        _id: movie._id,
-        title: movie.title,
-        seqNr: movie.seqNr,
-        releaseYear: movie.releaseYear,
-        rating: movie.rating,
-    }
-}): [] ;*/
+export interface ActionSort {
+    type: 'SORT_MOVIES';
+    payload: string
+}
 
 
-
+export type Action = ActionSearch | ActionFetch | ActionSort;
 
 const initialState: movieState = {
     text: '',
@@ -63,12 +44,11 @@ const initialState: movieState = {
 
     ],
     movie: null,
-    sorting: JSON.parse(localStorage.getItem('type') || '{}')
+    sort: JSON.parse(localStorage.getItem('type') || '{}').type
 }
 
 
 export default function(state = initialState, action: Action) {
-    
     switch (action.type) {
         case SEARCH_MOVIE:
             return {
@@ -81,6 +61,11 @@ export default function(state = initialState, action: Action) {
                 ...state,
                 movies: action.payload
             } 
+        case SORT_MOVIES:
+            return {
+                ...state,
+                sort: action.payload
+            }
         default: 
             return state;
     }

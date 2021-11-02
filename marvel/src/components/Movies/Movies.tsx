@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import { fetchMovies } from "../../actions/searchActions";
 import MoviesContainer from "./MoviesContainer";
 import MovieSummary from "./MovieSummary";
 
