@@ -1,6 +1,7 @@
 import { useState } from "react"
 import SortingSurvey from './SortingSurvey';
 
+//Shown in MovieSummary - displaying the checkboxes
 const SortingChart = () => {
 
     let store: string | null = "";
@@ -20,6 +21,7 @@ const SortingChart = () => {
     }
     
     return(<p>ERROR: Something went wrong. </p>)
+    //Note: if this is shown, you should probably clear local storage data or cache memory in browser
     
 
 }

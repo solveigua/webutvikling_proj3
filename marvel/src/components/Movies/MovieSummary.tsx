@@ -13,11 +13,15 @@ interface IAllMoviesProps {
     moviesList: { _id: number, title: string, seqNr: number, releaseYear: number, rating: number, __typename: string }[];
     }
 
+//The MovieSummary item - shown in Movies
+
 export class MovieSummary extends Component<IAllMoviesProps, IAllMoviesState> {
 
     state: IAllMoviesState = {
         moviesList: []
       };
+
+    //ferches the movies
 
     showAllMovies = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault();

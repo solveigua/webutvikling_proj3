@@ -14,6 +14,8 @@ interface ISearchbarState {
   moviesList: { _id: number, title: string, seqNr: number, releaseYear: number, rating: number, __typename: string }[];
   }
 
+//Searchbar in the Header - text input field and search button
+
 export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
 
   state: ISearchbarState = {
@@ -24,6 +26,8 @@ export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
         this.props.searchMovie(e.currentTarget.value);
     }
 
+    //Fetching movies on submit
+
     onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         this.props.fetchMovies(this.props.text)
@@ -31,6 +35,8 @@ export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
           moviesList: this.props.fetchMovies(this.props.text)
         });
     }
+
+
     render() {
         return (
             <div className={classes.actions}>

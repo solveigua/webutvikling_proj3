@@ -7,6 +7,8 @@ interface Props {
   name: string;
 }
 
+//Checkbox for options releaseYear and SeqNr - used in SortingSurvey
+
 const Checkbox = (props: Props) => {
   return (
     <div className= "radio__input">
