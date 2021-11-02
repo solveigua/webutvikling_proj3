@@ -30,11 +30,11 @@ Resterende manipulasjon av data for sortering og søk er implementert med logikk
 
 End-to-end testing er gjort med cypress, og kan kjøres fra rotnivå med kommandoen npm run cypress:run (for å kjøre testene i konsoll) og/eller npm run cypress:open for å kjøre Cypress Test Runner gjennom Electron window.
 Vi har skrevet tester for Header-komponentet, hovedsiden med Movies, søke-feltet og søkelogikken, samt at siden loader med riktig deployment. Cypress hjelper med all funksjonalitet relatert til ende-til-ende-testing, og lar oss skrive tester som tester hele applikasjonens “workflow” ved å gjenskape reelle brukerscenarioer. Slik kan systemet valideres for integrasjon og dataintegritet.
-Det finnes videoer for testene i mappen cypreSS/movies.
+Det finnes videoer for testene i mappen cypress/movies.
 
 **Enhetstesting**
 
-Enhetstesting er utført med jest og Enzyme, samt reacts testbibliotek. Vi har veldig mange komponenter, og har ikke implementert tester for alle. Vi har brukt snapshot-tester for å sjekke at komponenter vil rendere riktig, samt mock-funksjoner for å sikre riktig funksjonalitet i komponentene. Testene finnes under marvel/components/__tests__.
+Enhetstesting er utført med jest og Enzyme, samt reacts testbibliotek. Vi har veldig mange komponenter, og har ikke implementert tester for alle. Vi har brukt snapshot-tester for å sjekke at komponenter vil rendere riktig, samt mock-funksjoner for å sikre riktig funksjonalitet i komponentene. Testene finnes under marvel/components/__tests__, i en egen branch kalt "test". Dette er fordi vi hadde feil i moduler som vi ikke rakk å fikse før fristen, som vi ikke ville skulle ødelegge for master-branchen. Mest sannsynlig er det to importerte versjoner av React som forårsaker feilen.
 
 Til neste prosjekt ønsker vi å fokusere enda mer på tester, og ha muligheten til å teste mer. 
 
