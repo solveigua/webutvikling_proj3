@@ -14,7 +14,7 @@ interface input {
 //What is included in one movie item - we can change this if we want to expand ect. Remember to change the css file as well.
 
 const MovieItem: React.FC<{key:string, _id:string, title:string, seqNr:number, releaseYear:number, rating: number}> = (props) => {
-    const [rating, setRating] = useState<Number | null | undefined>(null);
+    const [rating, setRating] = useState<number>(props.rating);
     const [logRating, setLogRating] = useState(Number(localStorage.getItem(JSON.stringify(props.key))));
     const [hover, setHover] = useState<Number | null | undefined>(null);
     const [rateMovie, {data:rateData, error: rateError, loading:rateLoading}] = useMutation(SET_RATING)
@@ -49,7 +49,7 @@ const MovieItem: React.FC<{key:string, _id:string, title:string, seqNr:number, r
                 <input 
                 type='radio-star' 
                 name='rating' 
-                value ={ratingValue}
+                value ={rating}
                 onClick= {() => handleChange(ratingValue)}
                 />
                  <FaStar 
