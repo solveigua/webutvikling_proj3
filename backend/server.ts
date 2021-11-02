@@ -21,7 +21,7 @@ async function startServer() {
             res.send("Hello from express apollo server");
         });
 
-        await mongoose.connect('mongodb://solveig:aune@it2810-19.idi.ntnu.no:27017/marvel?authSource=marvel&readPreference=primary&appname=MongoDB%20Compass&ssl=false', {
+        await mongoose.connect('mongodb://solveig:aune@it2810-19.idi.ntnu.no:27017/marvelrimary&appname=MongoDB%20Compass&ssl=false', {
             useUnifiedTopology: true,
             useNewUrlParser: true,
         } as ConnectOptions )

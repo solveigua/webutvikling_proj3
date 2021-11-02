@@ -27,7 +27,7 @@ import { onError } from "@apollo/client/link/error"
 
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql",
+  uri: "http://it2810-19.idi.ntnu.no:4000/graphql",
   cache: new InMemoryCache()
 });
 
