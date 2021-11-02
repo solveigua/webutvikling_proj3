@@ -38,7 +38,7 @@ const MovieItem: React.FC<{key:string, _id:string, title:String, seqNr:number, r
             return (
             <label>
                 <input 
-                type='radio' 
+                type='radio-star' 
                 name='rating' 
                 value ={ratingValue}
                 onClick= {() => handleChange(ratingValue)}

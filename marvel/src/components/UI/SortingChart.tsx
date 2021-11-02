@@ -13,7 +13,7 @@ const SortingChart = () => {
     if (type === "year") {
         return (
             <div>
-                    <SortingSurvey {...{setType}} />
+                <SortingSurvey {...{setType}} />
             </div>
         );
     }

@@ -41,12 +41,11 @@ export const fetchMovies = (text: string) => async (dispatch: Dispatch<dispatchT
 
       const arr = res?.data.getAllMovies
       console.log(text)
-      console.log(arr)   //hente filmene fra databasen, foreløpig bare dummy data
+      console.log(arr)  //hente filmene fra databasen, foreløpig bare dummy data
         dispatch({
             type: FETCH_MOVIES,
-            payload: dummyData.filter((movie) =>
+            payload: arr.filter((movie:Movie) => 
             movie.title.toLowerCase().includes(text.toLowerCase()))
         });
-
         
 }
