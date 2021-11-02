@@ -1,4 +1,3 @@
-import { useState } from "react";
 import './App.css';
 import Header from './components/Layout/Header';
 import Movies from "./components/Movies/Movies";
