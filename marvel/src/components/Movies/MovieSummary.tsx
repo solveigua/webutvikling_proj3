@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import SortingChart from '../UI/SortingChart';
-import SortingSurvey from '../UI/SortingSurvey';
 import classes from './MovieSummary.module.css';
 import {  fetchMovies } from '../../actions/searchActions';
 import { connect, Provider } from 'react-redux';
 import store from '../../store';
 
 interface IAllMoviesProps {
-    fetchMovies: any; /*TYPE? fetchMovies ligger i searchActions*/
+    fetchMovies: any; /*TYPE? (text: string) => (dispatch: Dispatch<dispatchType>) => Promise<void> gir feil*/
     }
     
   interface IAllMoviesState {
