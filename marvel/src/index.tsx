@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {onError} from '@apollo/client/link/error';
 
 import {
   ApolloClient,
@@ -10,13 +11,34 @@ import {
   ApolloProvider,
   useQuery,
   useMutation,
-  gql
+  gql,
+  HttpLink,
+  createHttpLink
 } from '@apollo/client';
 
+const link = createHttpLink({
+  uri: "http://it2810-19.idi.ntnu.no:4000/graphql",
+  credentials: "same-origin",
+});
+
+/*const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors) {
+    graphQLErrors.array.forEach(( {message:string, locations, path }) =>
+     {console.log(
+       `[GraphQL error]: Message: ${onmessage}, Location: ${Location}, Path: ${path}`
+     )
+    });
+  }
+  if (networkError){
+    console.log(`[Network error]: ${networkError}`);
+  }
+});*/
+
 const client = new ApolloClient({
-  uri: 'http://it2810-19.idi.ntnu.no:4000/graphql',
+  link,
   cache: new InMemoryCache()
 })
+
 
 ReactDOM.render(
   <React.StrictMode>

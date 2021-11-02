@@ -5,5 +5,4 @@ export type Movie = {
     title: string;
     _id: string;
     __typename: string
-   
 }

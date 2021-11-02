@@ -81,8 +81,8 @@ export const resolvers = {
         setRating: async (_, args) => {
             console.log(args.input);
             try {
-                const movie = await models.Movie.findById(args.input.id);
-                console.log(movie);
+                const movie = await models.Movie.findById(args.input.movieId);
+                console.log(JSON.parse(JSON.stringify(movie)));
                 if (movie) {
                     await models.Movie.updateOne( movie ,{ $set: { rating: args.input.rating }});
                     return movie;

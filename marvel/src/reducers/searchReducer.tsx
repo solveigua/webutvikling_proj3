@@ -33,8 +33,8 @@ export interface ActionFetch {
 
 export type Action = ActionSearch | ActionFetch;
 
-const client = new ApolloClient({
-    uri: 'http://it2810-19.idi.ntnu.no:4001/graphql',
+/*const client = new ApolloClient({
+    uri: 'http://it2810-19.idi.ntnu.no:4000/graphql',
     cache: new InMemoryCache()
   })
 

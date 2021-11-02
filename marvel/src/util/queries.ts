@@ -14,7 +14,7 @@ const GET_ALL_MOVIES = gql`
 `
 
 const GET_MOVIE = gql`
-    query($id: String!){
+    query($id: ID!){
         getMovie(input: {id: $id}) {
             title
             rating
@@ -37,7 +37,7 @@ const GET_ALL_CHARACTERS = gql`
 `
 
 const GET_CHARACTER = gql`
-    query($id: String!){
+    query($id: ID!){
         getCharacter (input: {id: $id}){
             name
             actor
@@ -48,7 +48,7 @@ const GET_CHARACTER = gql`
 
 //Mutation:
 const SET_RATING = gql`
-    mutation ($id: String!, $rating: Int!){
+    mutation ($id: ID, $rating: Int!){
         setRating(input: {movieId: $id, rating: $rating}){
             title
             rating

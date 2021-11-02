@@ -18,9 +18,10 @@ export class MoviesContainer extends Component<IMoviesContainerProps, IMoviesCon
         const { movies } = this.props;
 
         let content: Movie[] = [];
-        content = movies?.length >= 0 ? movies.map((movie: any) =>
+        content = movies?.length >-1 ? movies.map((movie: Movie) =>
             <MovieItem
                 key={movie._id}
+                _id={movie._id}
                 title={movie.title}
                 seqNr={movie.seqNr}
                 releaseYear={movie.releaseYear}
