@@ -21,6 +21,6 @@
     font-size: 1.25rem;
   }
 
-  input[type='radio'] {
+  input[type='radio-star'] {
     display: none;
   }

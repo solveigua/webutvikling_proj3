@@ -33,13 +33,8 @@ export const resolvers = {
             return "hello world";
         },
         getAllMovies: async () => {
-<<<<<<< HEAD:backend/resolvers.ts
-            const movies = await Movie.find();
-            //console.log(movies);
-=======
             const movies = await models.Movie.find();
             console.log(movies);
->>>>>>> 13-add-rating:backend/resolvers.js
             return movies;
         },
 
@@ -56,18 +51,6 @@ export const resolvers = {
              catch (err) {
                  throw err;
              }
-        },
-
-        //Brukes ikke: kan slettes
-        getMoviesFromCharacter: async (_:Object, args: {input: characterId}) => {
-            try {
-                const character = await models.Character.findById(args.input.id);
-                //return character.();
-             }
-             catch (err) {
-                 throw err;
-             }
-
         },
 
         getCharacter: async (_, args) => {

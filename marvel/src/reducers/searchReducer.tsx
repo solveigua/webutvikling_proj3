@@ -60,14 +60,7 @@ export type Action = ActionSearch | ActionFetch;
 const initialState: movieState = {
     text: '',
     movies: [
-        {_id: '1', title: "Captain America 1", seqNr: 1, releaseYear: 2011, rating:3},
-        {_id: '2', title: "Iron Man", seqNr: 3, releaseYear: 2008, rating:3},
-        {_id: '3', title: "Captain Marvel", seqNr: 4, releaseYear: 2019, rating:3},
-        {_id: '4', title: "Iron Man 2", seqNr: 3, releaseYear: 2010, rating:3},
-        {_id: '5', title: "Hulken", seqNr: 5, releaseYear: 2008, rating:3},
-        {_id: '5', title: "Thor", seqNr: 6, releaseYear: 2011, rating:3},
-        {_id: '6', title: "The Avengers", seqNr: 7, releaseYear: 2012, rating:3},
-        {_id: '7', title: "Iron Man 3", seqNr: 8, releaseYear: 2013, rating:3}
+
     ],
     movie: null,
     sorting: JSON.parse(localStorage.getItem('type') || '{}')
