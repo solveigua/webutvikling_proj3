@@ -30,21 +30,14 @@ export class MoviesContainer extends Component<IMoviesContainerProps, IMoviesCon
     render() {
         const { movies } = this.props;  
         let content: Movie[] = [];
-
-        this.state.type === 'year' ? movies.sort(function(a, b) {
-            return a.releaseYear - b.releaseYear;
-        }) : movies.sort(function(a, b) {
-            return a.seqNr - b.seqNr;
-        });
-
-        // this.setState({sortedMovies: movies})
-        
-        content = movies.length > 0 ? movies.map((movie: any) =>
+        content = movies?.length >-1 ? movies.map((movie: Movie) =>
             <MovieItem
                 key={movie._id}
+                _id={movie._id}
                 title={movie.title}
                 seqNr={movie.seqNr}
                 releaseYear={movie.releaseYear}
+                rating={movie.rating}
             />) : null as any
 
         return (

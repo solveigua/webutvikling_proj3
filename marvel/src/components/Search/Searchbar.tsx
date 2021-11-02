@@ -11,7 +11,7 @@ interface ISearchbarProps {
   }
   
 interface ISearchbarState {
-  moviesList: { _id: number, title: string, seqNr: number, releaseYear: number }[];
+  moviesList: { _id: number, title: string, seqNr: number, releaseYear: number, rating: number, __typename: string }[];
   }
 
 export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {

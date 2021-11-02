@@ -4,6 +4,8 @@ import Header from './components/Layout/Header';
 import Movies from "./components/Movies/Movies";
 import store from './store';
 import { Provider } from 'react-redux';
+import {useQuery, useMutation} from '@apollo/client'; 
+
 
 function App() {
   const [searchIsShown, setSearchIsShown] = useState<Boolean>(false);

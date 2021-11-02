@@ -1,38 +1,30 @@
-import classes from './MovieItem.module.css';
 import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import {FaStar} from 'react-icons/fa';
-import { GET_ALL_MOVIES, SET_RATING } from "../../../util/queries";
- 
+import { GET_ALL_MOVIES, SET_RATING } from "../../util/queries";
 
-interface input {
+interface Props {
     movieId : string
 }
-//What is included in one movie item - we can change this if we want to expand ect. Remember to change the css file as well.
 
-const MovieItem: React.FC<{key:string, _id:string, title:String, seqNr:number, releaseYear:number, rating: number}> = (props) => {
+const StarRating = (props: Props) => {
+
     const [rating, setRating] = useState<Number | null | undefined>(null);
-    const [logRating, setLogRating] = useState(Number(localStorage.getItem(JSON.stringify(props.key))));
+    const [logRating, setLogRating] = useState(Number(localStorage.getItem(JSON.stringify(props.movieId))));
     const [hover, setHover] = useState<Number | null | undefined>(null);
-    const [rateMovie, {data:rateData, error: rateError, loading:rateLoading}] = useMutation(SET_RATING)
+    const [rateMovie, {data:rateData, error: rateError, loading:rateLoading}] = useMutation(SET_RATING,{ refetchQueries: [GET_ALL_MOVIES, 'getAllMovies']} )
 
     const handleChange = async (newRating: number | null) => {
         if (typeof newRating === 'number') {
-            localStorage.setItem(JSON.stringify(props._id), newRating.toString());
+            localStorage.setItem(JSON.stringify(props.movieId), newRating.toString());
             setRating(newRating)
             setLogRating(newRating)
-            console.log(props);
-            await rateMovie({ variables: { id: props._id, rating: newRating } })
+            await rateMovie({ variables: { id: props.movieId, rating: newRating } })
         }
     }
 
-    return (
-        <li className = {classes.movie}>
-            <div>
-                <h3>{props.title}</h3>
-                <div className={classes.seqNr}>{props.seqNr}</div>
-                <div className={classes.releaseYear}>{props.releaseYear}</div>
-                <div>
+
+    return <div>
         {[...Array(5)].map((star, i) => {
             const ratingValue = i+1;
             return (
@@ -56,12 +48,6 @@ const MovieItem: React.FC<{key:string, _id:string, title:String, seqNr:number, r
         }) }
         <p> Your rating is: {rating}/5 </p>
     </div>
-                
-            </div>
-            <div>
-            </div>
-        </li>
-    );
-};
+}
 
-export default MovieItem;
+export default StarRating;
