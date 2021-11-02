@@ -38,14 +38,6 @@ ul.header li a {
   grid-template-rows: auto auto;
 }
 
-body, html{
-margin: auto;
-padding: 0px 0px 0px 0px;
-min-width: 100%;
-min-height: 100%;
-background: linear-gradient(180deg, #ED1D24 40%, rgba(0, 0, 0, 0.76) 97.92%) fixed;
-}
-
 .movie-deck {
   display: flex;
   flex-wrap: wrap;
@@ -65,4 +57,12 @@ background: linear-gradient(180deg, #ED1D24 40%, rgba(0, 0, 0, 0.76) 97.92%) fix
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+body{
+  margin: auto;
+  padding: 0px 0px 0px 0px;
+  min-width: 100%;
+  min-height: 100%;
+  background: linear-gradient(180deg, #ED1D24 60%, rgba(0, 0, 0, 0.76) 97.92%) fixed;
 }

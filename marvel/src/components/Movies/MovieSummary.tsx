@@ -31,8 +31,8 @@ export class MovieSummary extends Component<IAllMoviesProps, IAllMoviesState> {
         return (
             <Provider store={store}>
                 <section className={classes.summary}>
-                    <h2>Marvel movies</h2>
-                    <p className={classes.info}> Search for your favourite Marvel movie and give them a rating</p>
+                    <h2>Marvel Cinematic Universe </h2>
+                    <p className={classes.info}> Search for your favourite Marvel Cinematic Universe movies and give them a rating!</p>
                     <p className={classes.heading}> Sort movies based on: </p>
                     <SortingChart />
                     <div className={classes.buttoncontainer}>
