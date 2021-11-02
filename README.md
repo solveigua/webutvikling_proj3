@@ -1,5 +1,11 @@
 # Prosjekt 3 - Marveldatabase
 
+Prosjektet vårt kan finnes på begge disse linkene:
+* http://it2810-19.idi.ntnu.no/
+* http://it2810-19.idi.ntnu.no/prosjekt3/
+
+**NB!** Dersom du får en feil når du åpner prosjektet der det står "Error, something went wrong" er du nødt til å inspisere siden --> application --> localStorage --> clear storage. Da skal det fungere. 
+
 ## Prosjektet
 Vi så på prosjektet som en mulighet til å lære oss nye ting. Medlemmer som tidligere har jobbet mest på frontend jobbet nå med backend, og omvendt. Vi har opplevd dette som veldig lærerikt og utfordrende, da vi følte vi fikk komme litt utenfor komfortsonen og at vi har fått større forståelse for ulike aspekter ved webutvikling.
 
@@ -68,5 +74,13 @@ For å opprettholde god universell utforming har vi tatt utgangspunkt i denne ne
 
 For å opprettholde god universell utforming, har vi blant annet valgt å ha intuitiv bruk av headings, høy kontrast i fargebruken for lettere lesing, store knapper samt mulighet for zoom på siden ved bruk av mus. Vi har også accessibility på keyboardet i søkefunksjonen, da men kan søke ved å trykke enter-tasten, ikke bare ved å trykke på knappen. 
 
+**Lighthouse**
+
+Vi kjørte også en lighthouse-report for å sjekke universell utforming.
+Som man ser fra rapporten dersom man kjører det selv oppnår vi god en score på accessibility.
+
+**Kilder**
+
+Vi har sett mye på tutorials fra YouTube og Udemy, både for utforming av CSS, bruk av Redux og for funksjonalitet som søk og ratingbar. 
 
 
