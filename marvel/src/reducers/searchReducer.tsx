@@ -1,20 +1,24 @@
-import { SEARCH_MOVIE, FETCH_MOVIES } from "../actions/types";
+import { SEARCH_MOVIE, FETCH_MOVIES, SORT_MOVIES } from "../actions/types";
+
+// searchReducer er litt misvisende navn siden den inneholder alle reducers
 
 export interface movieState {
     text: string,
     movies: {
-        _id: number,
+        _id: string,
         title: string,
         seqNr: number,
-        releaseYear: number
+        releaseYear: number,
+        rating: number,
     }[]
     movie: {
-        _id: number,
+        _id: string,
         title: string,
         seqNr: number,
-        releaseYear: number
+        releaseYear: number,
+        rating: number,
     } | null
-    sorting: string | null
+    sort: string | null
 }
 
 export interface ActionSearch {
@@ -26,23 +30,21 @@ export interface ActionFetch {
     payload: string
 }
 
+export interface ActionSort {
+    type: 'SORT_MOVIES';
+    payload: string
+}
 
-export type Action = ActionSearch | ActionFetch;
+
+export type Action = ActionSearch | ActionFetch | ActionSort;
 
 const initialState: movieState = {
-    text: ' ',
+    text: '',
     movies: [
-        {_id: 1, title: "Captain America 1", seqNr: 1, releaseYear: 2011},
-        {_id: 2, title: "Iron Man", seqNr: 2, releaseYear: 2008},
-        {_id: 3, title: "Captain Marvel", seqNr: 3, releaseYear: 2019},
-        {_id: 4, title: "Iron Man 2", seqNr: 4, releaseYear: 2010},
-        {_id: 5, title: "Hulken", seqNr: 5, releaseYear: 2008},
-        {_id: 6, title: "Thor", seqNr: 6, releaseYear: 2011},
-        {_id: 7, title: "The Avengers", seqNr: 7, releaseYear: 2012},
-        {_id: 8, title: "Iron Man 3", seqNr: 8, releaseYear: 2013},
+
     ],
     movie: null,
-    sorting: JSON.parse(localStorage.getItem('type') || '{}')
+    sort: JSON.parse(localStorage.getItem('type') || '{}').type
 }
 
 
@@ -59,6 +61,11 @@ export default function(state = initialState, action: Action) {
                 ...state,
                 movies: action.payload
             } 
+        case SORT_MOVIES:
+            return {
+                ...state,
+                sort: action.payload
+            }
         default: 
             return state;
     }

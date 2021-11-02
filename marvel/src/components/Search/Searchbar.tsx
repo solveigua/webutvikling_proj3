@@ -1,17 +1,17 @@
-import React, {Component} from 'react';
+import React, {Component, Dispatch} from 'react';
 import { searchMovie, fetchMovies } from '../../actions/searchActions';
 import { connect } from 'react-redux';
 import classes from './Search.module.css';
 
 
 interface ISearchbarProps {
-  searchMovie: any; /*TYPE? searchMovie ligger i searchActions*/
-  fetchMovies: any; /*TYPE? fetchMovies ligger i searchActions*/
+  searchMovie: any; /* type : (text: string) => (dispatch: Dispatch<dispatchType>) => void ga feil i koden*/
+  fetchMovies: any; /* type : (text: string) => (dispatch: Dispatch<dispatchType>) => Promise<void> ga feil i koden*/
   text: string;
   }
   
 interface ISearchbarState {
-  moviesList: { _id: number, title: string, seqNr: number, releaseYear: number }[];
+  moviesList: { _id: number, title: string, seqNr: number, releaseYear: number, rating: number, __typename: string }[];
   }
 
 export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
@@ -27,7 +27,6 @@ export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
     onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         this.props.fetchMovies(this.props.text)
-        //this.state.moviesList = this.props.fetchMovies(this.props.text)
         this.setState({
           moviesList: this.props.fetchMovies(this.props.text)
         });
@@ -52,7 +51,7 @@ export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
     }
 }
 
-const mapStateToProps = (state: any) /*TYPE?*/ => ({
+const mapStateToProps = (state: any) /*TYPE? typeof searchReducer gir feil*/ => ({
     text: state.movies.text
 })
 

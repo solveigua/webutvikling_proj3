@@ -50,7 +50,7 @@ input characterId{
     id: ID
 }
 input ratingInput {
-    movieId: ID
+    movieId: ID!
     rating: Int
 }
 `;

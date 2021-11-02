@@ -4,19 +4,21 @@ import SortingSurvey from './SortingSurvey';
 const SortingChart = () => {
 
     let store: string | null = "";
-    localStorage.length == 1 ? store = JSON.parse(localStorage.getItem('type') || '{}')
-    : store = "year";
+    if ("type" in localStorage) {
+        store=JSON.parse(localStorage.getItem('type') || '{}').type
+    } else {
+        localStorage.setItem("type", JSON.stringify({type: "year"}));
+    }
     const [type, setType] = useState(store);
-    localStorage.setItem("type", JSON.stringify(type));
-    console.log(localStorage.length)
 
-    if (type === "year") {
+    if (type === "year" || type === "sequence") {
         return (
             <div>
-                    <SortingSurvey {...{setType}} />
+                <SortingSurvey {...{setType}} />
             </div>
         );
     }
+    /*
     else if (type === "sequence") {
         return (
             <div >
@@ -24,6 +26,7 @@ const SortingChart = () => {
             </div>
         );
     }
+    */
     return(<p>ERROR: Something went wrong. </p>)
     
 

@@ -1,9 +1,9 @@
-import express from 'express';
-import { ApolloServer, gql } from 'apollo-server-express';
-import mongoose, { ConnectOptions } from 'mongoose';
-
-import { resolvers } from './resolvers';
-import { typeDefs } from './typeDefs';
+const express = require('express');
+const ApolloServer = require('apollo-server-express/')
+const mongoose = require('mongoose')
+const ConnectOptions = require('mongoose/')
+const resolvers = require('./resolvers.js');
+const typeDefs = require('./typeDefs');
 
 async function startServer() {
     try {
@@ -24,7 +24,7 @@ async function startServer() {
         await mongoose.connect('mongodb://solveig:aune@it2810-19.idi.ntnu.no:27017/marvel?authSource=marvel&readPreference=primary&appname=MongoDB%20Compass&ssl=false', {
             useUnifiedTopology: true,
             useNewUrlParser: true,
-        } as ConnectOptions )
+        })
         .then( () => {
             console.log('Mongoose connected successfully')
         });
