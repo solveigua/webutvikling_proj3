@@ -44,9 +44,7 @@ export class MoviesContainer extends Component<IMoviesContainerProps, IMoviesCon
             <div>
                 <section className={classes.movies}>
                     <Card>
-                        <ul>
                             {content}
-                        </ul>
                     </Card>
                 </section>
             </div>

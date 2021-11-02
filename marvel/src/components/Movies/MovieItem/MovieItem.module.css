@@ -24,3 +24,12 @@
   input[type='radio-star'] {
     display: none;
   }
+
+  .movieItem{
+   
+  }
+
+  .movieImg{
+    width: 50px;
+    height: 100px;
+  }
