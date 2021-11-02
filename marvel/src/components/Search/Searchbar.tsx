@@ -14,7 +14,8 @@ interface ISearchbarState {
   moviesList: { _id: number, title: string, seqNr: number, releaseYear: number, rating: number, __typename: string }[];
   }
 
-// SearchBar is used Header
+//Searchbar in the Header - text input field and search button
+
 export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
 
   state: ISearchbarState = {
@@ -34,6 +35,8 @@ export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
           moviesList: this.props.fetchMovies(this.props.text)
         });
     }
+
+
     render() {
         return (
             <div className={classes.actions}>
