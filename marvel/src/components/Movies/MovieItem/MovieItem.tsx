@@ -40,11 +40,11 @@ const MovieItem: React.FC<{key:string, _id:string, title:string, seqNr:number, r
         {[...Array(5)].map((star, i) => {
             const ratingValue = i+1;
             return (
-            <label>
+            <label key={i}>
                 <input 
                 type='radio-star' 
                 name='rating' 
-                value ={rating}
+                defaultValue ={rating}
                 onClick= {() => handleChange(ratingValue)}
                 />
                  <FaStar 
