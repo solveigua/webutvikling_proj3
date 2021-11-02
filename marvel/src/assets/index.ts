@@ -14,14 +14,14 @@ import Avengers2 from './marvel_pictures/avengers2.jpg';
 import Antman from './marvel_pictures/antman.jpg';
 import CapAmerica3 from './marvel_pictures/cap3.jpg';
 import BlackWidow from './marvel_pictures/blackwidow.jpg';
-import Spiderman from './marvel_pictures/spiderman1.jpg';
+import Spiderman from './marvel_pictures/spiderman_FarFromHome.jpg';
 import DoctorStrange from './marvel_pictures/doc.jpg';
 import BlackPanther from './marvel_pictures/blackpanther.jpg';
 import Thor3 from './marvel_pictures/thor3.jpg';
 import Avengers3 from './marvel_pictures/avengers3.jpg';
 import Antman2 from './marvel_pictures/antman2.jpg';
 import Avengers4 from './marvel_pictures/avengers4.jpg';
-import Spiderman2 from './marvel_pictures/spiderman2.jpg';
+import Spiderman2 from './marvel_pictures/spiderman.jpg';
 
 
 export const coverMovies = [

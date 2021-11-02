@@ -17,7 +17,6 @@ const MovieItem: React.FC<{key:string, _id:string, title:string, seqNr:number, r
     const [logRating, setLogRating] = useState(Number(localStorage.getItem(JSON.stringify(props.key))));
     const [hover, setHover] = useState<Number | null | undefined>(null);
     const [rateMovie, {data:rateData, error: rateError, loading:rateLoading}] = useMutation(SET_RATING)
-    const [picture, setPicture] = useState();
 
     const handleChange = async (newRating: number | null) => {
         if (typeof newRating === 'number') {
