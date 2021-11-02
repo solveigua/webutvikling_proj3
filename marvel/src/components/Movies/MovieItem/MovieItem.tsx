@@ -6,6 +6,7 @@ import { GET_ALL_MOVIES, SET_RATING } from "../../../util/queries";
 import {Card} from "antd";
 import {coverMovies} from '../../../assets/index';
  
+const { Meta } = Card;
 
 interface input {
     movieId : string
@@ -32,17 +33,15 @@ const MovieItem: React.FC<{key:string, _id:string, title:string, seqNr:number, r
 
     return (
         <Card
-            className={classes.MovieItem}
+            className={classes.movie}
             hoverable
             style={{ width: 360 }}
             cover={<img className={classes.movieImg} alt={props.title} src={found?.picture} />}
         >
-        <li className = {classes.movie}>
-            <div>
-                <h3>{props.title}</h3>
-                <div className={classes.seqNr}>{props.seqNr}</div>
-                <div className={classes.releaseYear}>{props.releaseYear}</div>
-            <div>
+        <Meta className="movie-item-title" title={props.title} />
+        <Meta className={classes.releaseYear} title= {props.releaseYear}/>
+            
+        <div>
         {[...Array(5)].map((star, i) => {
             const ratingValue = i+1;
             return (
@@ -61,16 +60,10 @@ const MovieItem: React.FC<{key:string, _id:string, title:string, seqNr:number, r
                  onMouseLeave={() => setHover(null)}
                  />
             </label>
-
             );
         }) }
         <p> Your rating is: {rating}/5 </p>
-    </div>
-                
-            </div>
-            <div>
-            </div>
-        </li>
+        </div>
         </Card>
     );
 };

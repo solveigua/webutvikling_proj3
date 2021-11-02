@@ -8,7 +8,8 @@ const MovieSummary = () => {
     return (
     <section className={classes.summary}>
         <h2>All Marvel movies</h2>
-        <p> Search for you favourite Marvel movie</p>
+        <p className={classes.info}> Search for your favourite Marvel movie</p>
+        <p className= {classes.heading}> Sort movies based on: </p>
         <SortingChart/>
     </section>
     );
