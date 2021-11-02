@@ -23,6 +23,7 @@ import Antman2 from './marvel_pictures/antman2.jpg';
 import Avengers4 from './marvel_pictures/avengers4.jpg';
 import Spiderman2 from './marvel_pictures/spiderman.jpg';
 
+//importing from marvel_pictures and making list to map pictures to movie by seqNr
 
 export const coverMovies = [
     {seqNr: 1, picture: CapAmerica},

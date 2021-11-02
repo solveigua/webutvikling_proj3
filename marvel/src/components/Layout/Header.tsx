@@ -4,6 +4,8 @@ import Searchbar from "../Search/Searchbar";
 import {Provider} from 'react-redux';
 import store from "../../store"
 
+//Header at the top of page - shown in App.tsx
+
 const Header = () => {
     return (
         <Provider store={store}>

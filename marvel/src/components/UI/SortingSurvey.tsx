@@ -9,6 +9,8 @@ interface ISortingSurveyProps {
     setType: (type: string) => void;
 }
 
+//For finding out which checkbox is marked
+
 const SortingSurvey = ({ setType } : ISortingSurveyProps) => {
     const boolYear = JSON.parse(localStorage.getItem('type') || '{}').type === "year" ? true : false;
     const boolSeq = JSON.parse(localStorage.getItem('type') || '{}').type === "sequence" ? true : false;
@@ -33,7 +35,7 @@ const SortingSurvey = ({ setType } : ISortingSurveyProps) => {
         setType("sequence");
     };
 
-
+    //Handling which checkbox - used in SortingChart
     return (
         <div className="survey">
             <div>
