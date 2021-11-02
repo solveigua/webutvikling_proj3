@@ -18,15 +18,7 @@ const SortingChart = () => {
             </div>
         );
     }
-    /*
-    else if (type === "sequence") {
-        return (
-            <div >
-                 <SortingSurvey {...{setType}} />
-            </div>
-        );
-    }
-    */
+    
     return(<p>ERROR: Something went wrong. </p>)
     
 
