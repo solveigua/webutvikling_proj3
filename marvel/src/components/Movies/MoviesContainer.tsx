@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import classes from './SortedMovies.module.css';
+import classes from './MovieContainer.module.css';
 import MovieItem from './MovieItem/MovieItem';
 import { Movie } from '../Types';
 
