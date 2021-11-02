@@ -8,6 +8,8 @@ import { InMemoryCache } from "@apollo/client";
 
 // searchActions er litt misvisende navn siden den inneholder alle actions
 
+
+// En funksjon for å dispatche en SEARCH_MOVIE action med text som payload
 export const searchMovie = (text: string) => (dispatch: Dispatch<dispatchType>) => {
     dispatch({
         type: SEARCH_MOVIE,
@@ -15,6 +17,7 @@ export const searchMovie = (text: string) => (dispatch: Dispatch<dispatchType>) 
     });
 };
 
+// En funksjon for å dispatche en SORT_MOVIES action med sort som payload
 export const sortMovies = (sort: string) => (dispatch: Dispatch<dispatchType>) => {
     dispatch({
         type: SORT_MOVIES,
@@ -22,6 +25,8 @@ export const sortMovies = (sort: string) => (dispatch: Dispatch<dispatchType>) =
     });
 };
 
+// En funksjon for å dispatche en FETCH_MOVIES action med de filtrerte filmene som payload
+// Henter data fra databasen
 export const fetchMovies = (text: string) => async (dispatch: Dispatch<dispatchType>) => {
 
     const client = new ApolloClient({

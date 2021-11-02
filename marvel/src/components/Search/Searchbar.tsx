@@ -5,8 +5,8 @@ import classes from './Search.module.css';
 
 
 interface ISearchbarProps {
-  searchMovie: any; /* type : (text: string) => (dispatch: Dispatch<dispatchType>) => void ga feil i koden*/
-  fetchMovies: any; /* type : (text: string) => (dispatch: Dispatch<dispatchType>) => Promise<void> ga feil i koden*/
+  searchMovie: any; /* type : (text: string) => (dispatch: Dispatch<dispatchType>) => void creates error*/
+  fetchMovies: any; /* type : (text: string) => (dispatch: Dispatch<dispatchType>) => Promise<void> creates error*/
   text: string;
   }
   
@@ -14,16 +14,19 @@ interface ISearchbarState {
   moviesList: { _id: number, title: string, seqNr: number, releaseYear: number, rating: number, __typename: string }[];
   }
 
+// SearchBar is used Header
 export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
 
   state: ISearchbarState = {
     moviesList: []
   };
 
+    // onChange changes the global state of text when the text in the search field changes
     onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.props.searchMovie(e.currentTarget.value);
     }
 
+    // onSubmit makes sure that the correct movies are fetched and that the global state of movies updates
     onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         this.props.fetchMovies(this.props.text)
@@ -51,7 +54,7 @@ export class Searchbar extends Component<ISearchbarProps, ISearchbarState> {
     }
 }
 
-const mapStateToProps = (state: any) /*TYPE? typeof searchReducer gir feil*/ => ({
+const mapStateToProps = (state: any) /*TYPE? typeof searchReducer creates error*/ => ({
     text: state.movies.text
 })
 

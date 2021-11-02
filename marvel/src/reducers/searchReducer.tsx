@@ -1,7 +1,8 @@
 import { SEARCH_MOVIE, FETCH_MOVIES, SORT_MOVIES } from "../actions/types";
 
-// searchReducer er litt misvisende navn siden den inneholder alle reducers
+// searchReducer is not a completely appropriate name as it contains all the reducers
 
+// Interfaces to type the variables
 export interface movieState {
     text: string,
     movies: {
@@ -38,6 +39,7 @@ export interface ActionSort {
 
 export type Action = ActionSearch | ActionFetch | ActionSort;
 
+// An initialState for when starting app
 const initialState: movieState = {
     text: '',
     movies: [
@@ -54,7 +56,6 @@ export default function foo(state = initialState, action: Action) {
             return {
                 ...state,
                 text: action.payload,
-                loading: false
             };
         case FETCH_MOVIES:
             return {

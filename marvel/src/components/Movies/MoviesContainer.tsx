@@ -9,6 +9,7 @@ interface IMoviesContainerProps {
     sorting: string
 }
 
+// MoviesContainer is used in Movies
 export class MoviesContainer extends Component<IMoviesContainerProps> {
    
 
@@ -17,6 +18,7 @@ export class MoviesContainer extends Component<IMoviesContainerProps> {
         const { sorting } = this.props; 
         let content: Movie[] = [];
 
+        // movies are sorted before it is mapped to content
         sorting === 'year' ? movies.sort(function(a, b) {
             return a.releaseYear - b.releaseYear;
         }) : movies.sort(function(a, b) {
@@ -25,6 +27,7 @@ export class MoviesContainer extends Component<IMoviesContainerProps> {
 
 
         content = movies?.length >-1 ? movies.map((movie: Movie) =>
+        // A MovieItem is created for every movie in movies, this is displayed on the web page
             <MovieItem
                 key={movie._id}
                 _id={movie._id}
@@ -45,7 +48,7 @@ export class MoviesContainer extends Component<IMoviesContainerProps> {
     }
 }
 
-const mapStateToProps = (state: any /* typeof searchReducer gir feil:( */) => ({
+const mapStateToProps = (state: any /* typeof searchReducer gives error :( */) => ({
     movies: state.movies.movies,
     sorting: state.movies.sort
 })
