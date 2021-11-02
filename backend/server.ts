@@ -29,7 +29,7 @@ async function startServer() {
             console.log('Mongoose connected successfully')
         });
 
-        app.listen(4000, () => console.log("server is running on port 4000"));
+        app.listen(4001, () => console.log("server is running on port 4000"));
     }
     catch (err) {
         console.log("caugth error", err);
