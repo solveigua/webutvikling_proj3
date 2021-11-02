@@ -40,7 +40,7 @@ const SortingSurvey = ({ setType } : ISortingSurveyProps) => {
                 <Checkbox 
                     handleChange={handleChangeYear} 
                     isChecked={isCheckedYear} 
-                    label="Year" 
+                    label="Release Year" 
                     name="chart"
                 />
             </div>
@@ -48,7 +48,7 @@ const SortingSurvey = ({ setType } : ISortingSurveyProps) => {
                 <Checkbox 
                     handleChange={handleChangeSeq} 
                     isChecked={isCheckedSeq} 
-                    label="Sequence number"
+                    label="Chronological order"
                     name="chart"
                 />
             </div>
